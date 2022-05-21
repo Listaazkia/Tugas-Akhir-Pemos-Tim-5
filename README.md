@@ -38,7 +38,30 @@ Metode beda hingga ini merupakan perluasan dari metode beda tengah (central diff
 
 ## MODUL 2 ADVEKSI-DIFUSI 2D
 ### 2.1 TEORI DASAR
+- Adveksi merupakan mekanisme perpindahan massa suatu materi dari suatu titik ke titik lainya. Contoh adveksi adalah pengangkutan polutan atau endapan di sungai oleh aliran air curah ke hilir.
+    Persamaan Adveksi 2D
+![gambar](https://user-images.githubusercontent.com/105971274/169653219-816099ca-3c0a-4132-8c88-455223b7413b.png)
+- Difusi adalah sebuah proses dimana suatu zat bergerak dari konsentrasi tinggi ke rendah, sehingga akan menghasilkan konsentrasi yang sama didalam zat tersebut.
+    Persamaan Difusi 2D
+![gambar](https://user-images.githubusercontent.com/105971274/169653265-89ac5ba3-74b0-4c69-ad2c-09dfb87c29ae.png)
+- Pengaplikasian persamaan adveksi-difusi 2 dimensi digunakan sebagai pemodelan persebaran polutan. Persamaan adveksi-difusi 2D dapat digunakan juga dalam simulasi pergerakan atau persebaran tumpahan minyak (oil spill). Pengaplikasian persamaan adveksi difusi 2 dimensi digunakan untuk mengetahui distribusi partikel sedimen.
+
 ### 2.2 METODE
+Metode deksritisasi model 2D pada bagian atau suku adveksi dan difusi umumnya menggunakan metode eksplisit upstream. 
+
+- Adveksi 2D
+Pada model adveksi 2D metode eksplisit upstream untuk Pada metode ini persamaan beda hingga menggunakan pendekatan beda maju untuk turunan waktu, dan untuk turunan terhadap ruang dengan melihat arah kecepatan u. Jika u>0 maka turunan terhadap ruang menggunankan pendekatan beda mundur. Jika u<0 digunakan pendekatan beda maju
+    Persamaan dari metode diskritisasi untuk suku adveksi 2D
+![gambar](https://user-images.githubusercontent.com/105971274/169654069-3e1a6646-352d-4755-acd3-8bcbafef31e0.png)
+
+- Difusi 2D
+Model 2D untuk mekanisme transpor difusi dapat menggunakan pendekatan beda maju untuk turunan waktu dan beda pusat untuk turunan ruang. Indeks n untuk waktu, indeks i untuk ruang, dan koefisiesn difusi AD dianggap konstan terhadap ruang dan waktu
+    Persamaan diskritisasi untuk model 2D difusi adalah sebagai berikut
+![gambar](https://user-images.githubusercontent.com/105971274/169654200-af9bf5b9-bc10-49fd-9af0-22a69f2f5447.png)
+
+- Adveksi-Difusi 2D
+Persamaan diskritisasi model 2D mendekati proses kejadian di alam. Untuk diskritisasi model 2D proses adveksi-difusi didapat dari menggabungkan deskritisasi dua suku yakni suku adveksi dan suku difusi. untuk model adveksi difusi 2D adalah sebagai berikut
+![gambar](https://user-images.githubusercontent.com/105971274/169654760-cc46104a-fbbd-4ee2-9303-0139f48f283a.png)
 ### 2.3 SCRIPT DAN HASIL
 ### 2.4 ANALISIS
 
@@ -77,34 +100,24 @@ ax3.set_ylabel('Water Temperature [degC]')
 
 plt.show()
 2.	Tuliskan script diatas
-![image](https://user-images.githubusercontent.com/96079752/169655150-dacf34f4-5dec-49de-9459-6701322ebbf8.png)
+![image](https://user-images.githubusercontent.com/96079752/169654713-e333bca4-b4a3-4c79-adeb-6137f3ed5877.png)
 
 3.	Klik run untuk menjalankan script
-![image](https://user-images.githubusercontent.com/96079752/169655308-9e349f8a-89ce-435f-8b6e-df34cf960f60.png)
-
+![image](https://user-images.githubusercontent.com/96079752/169654727-a6cf7afa-53dc-4fe6-a2a7-f69a04521277.png)
+ 
 4.	Setelah  menunggu beberapa saat akan muncul hasil seperti berikut
-![image](https://user-images.githubusercontent.com/96079752/169655608-fef24dc3-92e1-4304-8d1b-92a3721d738d.png)
+![image](https://user-images.githubusercontent.com/96079752/169654745-4c79b673-9abd-47d6-8848-ba6b7d40a387.png)
  
 5.	Buka lama NDBC_NOAA untuk melihat lokasi station yang diperoleh sesuai NIM dan pada kolom Station ID Search ditulis ID lalu diklik Go
-![image](https://user-images.githubusercontent.com/96079752/169655359-707dbf51-564f-4d62-bc7a-ec6860293f7c.png)
+![image](https://user-images.githubusercontent.com/96079752/169654754-09359aff-d2ea-4023-b887-fe99ba8a9788.png)
 
 6.	Maka akan muncul informasi mengenai lokasi stasiun sesuai ID yang dimasukkan seperti dibawah ini
-![image](https://user-images.githubusercontent.com/96079752/169655384-2845ce3a-bc17-4f2c-9961-4f9a3e0b41a4.png)
+![image](https://user-images.githubusercontent.com/96079752/169654775-7f4cd9b1-8efa-4780-aa25-cdbb2fce1749.png)
 ![image](https://user-images.githubusercontent.com/96079752/169654780-becab836-e8f2-4125-8ce8-febf62ba8936.png)
 
 
 ### 4.3 SCRIPT DAN HASIL
-Script
-![image](https://user-images.githubusercontent.com/96079752/169655538-c5dcced1-9761-49dd-b7b8-3043734cced0.png)
-
-Hasil
-![image](https://user-images.githubusercontent.com/96079752/169655588-deb556af-be78-4347-8ecc-76530357ee5d.png)
-
 
 ### 4.4 ANALISIS
-<P> Data parameter yang digunakan diantaranya tekanan, kecepatan angin, arah angin, dan temperatur air pada periode 5 minggu yaitu dari tanggal 15 maret 2022 sampai 22 april 2022. Grafik diatas diperoleh dari hasil ekstrak data NDBC (National Data Buoy Center) milik NOAA yang kemudian diplot-kan dalam bentuk grafik. Lokasi pengamatan yaitu di stastion ID 51101 yang berada di tengah samudra tepatnya di bagian samudra pasifik utara pada koordinat 24.361 N 162.075 W (24°21'40" N 162°4'30" W). Berdasarkan hasil diatas, terdapat 3 grafik dengan warna yang berbeda. Grafik pertama merupakan grafik tekanan, dari gambar tersebut tekanan di lokasi yang ditinjau menunjukkan nilai terendah sebesar 1012 hPa dan yang tertinggi 1025 hPa. Namun di setiap minggu nya grafik menggambarkan fluktuasi tekanan yang tidak konstan dimana tekanan cenderung naik turun dengan nilai terendah berada di akhir minggu pertama. Begitupula dengan grafik kecepatan angin dan arah angin yang menggambarkan fluktuasi naik turun dengan kecepatan angin tertinggi sebesar 13 m/s dan yang terendah sebesar 0,1 m/s. Arah angin berkisar di 30-100°, namun pada beberapa hari arah angin menunjukkan nilai yang tidak biasanya yaitu mencapai 320°. Hal ini mungkin bisa terjadi karena pada saat pencatatan data oleh buoy terjadi cuaca sehingga mempengaruhi pengukuran buoy di daerah tersebut yang mana membuat data arah pergerakan angin berbeda dari biasanya. Mengingat juga letak buoy yang berada di tengah samudra pasifik sangat memungkinkan untuk mendapat gangguan cuaca. Anomali yang terjadi ini dapat dikatakan hanyalah data error dan bukan siklon sebab menurut Ismail et al (2017), siklon tropis dapat terbentuk diatas lautan dengan suhu permukaan laut lebih dari 26˚C dan pada lintang kurang dari 5˚ siklon. Sedangkan dari data yang ada pada saat arah angin mencapai 320°, suhu permukaan laut tidak menghangat sampai nilai 26˚C, selain itu lokasi pencatatan tidak dilewati oleh siklon tropis. 
-Untuk grafik ketika yaitu grafik temperatur yang digambarkan dengan warna biru langit menunjukkan fluktuasi yang tidak konstan dengan kisaran rat-rata berada di  24°C. Suhu tertinggi berada pada minggu pertama dengan nilai 25,2°C dan yang terendah terjadi pada minggu kedua dengan nilai 22,4°C. Dari grafik yang terlihat, suhu dan tekanan memiliki bentuk grafik yang berbanding terbalik, begitupula dengan suhu dan kecepatan angin. Artinya ketika suhu bernilai rendah, maka tekanan dan kecepatan angin tinggi. Sedangkan untuk hubungan tekanan dan kecepatan angin yaitu linier, sehingga bentuk grafik nya hampir sama. 
-Tekanan udara pada permukaan bumi ditentukan oleh kerapatan massa udara. Makin rapat udara, tekanannya semakin tinggi. Kerapatan udara berhubungan erat dengan suhu, radiasi matahari, kelembaban dan gaya berat. Di suatu area dengan udara tipis, tekanan udara permukaan rendah. Di area dengan udara padat, tekanan di permukaan nya tinggi. Suhu dan tekanan sendiri memiliki hubungan yang terbalik dimana ketika suhu rendah maka tekanan tinggi disebabkan udara disana memiliki kerapatan massa yang tinggi. Sebaliknya, ketika daerah bersuhu tinggi maka tekanan udara diatasnya rendah karena kerapatan massa yang rendah. Perbedaan tekanan inilah yang selanjutnya membangkitkan pergerakan angin dan mempengaruhi kecepatan angin tersebut. Perbedaan tekanan udara pada daerah yang berbeda dengan ketinggian yang sama diakibatkan dari penerimaan radiasi matahari yang berbeda. Hal ini sejalan dengan Stewart (2008) yang menyatakan angin bergerak dari tekanan udara tinggi ke tekanan udara rendah dan kecepatan angin ditentukan oleh laju perubahan tekanan, dimana tekanan udara dapat mempengaruhi perubahan kecepatan angin.  Besar kecil nya kecepatan angin ini akan berhubungan dengan tinggi gelombang yang dibangkitkan oleh angin, ketika kecepatan angin nya tinggi maka gelombang di daerah tersebut juga akan semakin tinggi. 
-
 
 ## PENUTUP
