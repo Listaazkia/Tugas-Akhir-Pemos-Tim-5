@@ -298,8 +298,14 @@ for n in range (0, Nt):
     
     print('Nilai CFL:' +str(cfl) + 'dengan arah: ' +str(theta))
     
-# 2.4 ANALISIS
+- Hasil
+![hasil 1](https://user-images.githubusercontent.com/105906363/169682468-a5fbadaf-ca90-4b11-ae0a-89b3c9981701.jpg)
+![hasil 2](https://user-images.githubusercontent.com/105906363/169682470-ec09a6c2-9493-4b57-aaa7-dc3c48cef345.jpg)
+![hasil 3](https://user-images.githubusercontent.com/105906363/169682473-d31987bd-5b64-41c8-9a81-6302af3f7692.jpg)
+![hasil 4](https://user-images.githubusercontent.com/105906363/169682474-f65110ec-1c22-4fe3-8372-60e5a3aab0a6.jpg)
 
+# 2.4 ANALISIS
+Berdasarkan 4 situasi yang telah dimodelkan, dapat diketahui bahwa persebaran polutan pada perairan berganting pada nilai C (kecepatan aliran) dan ad (koefisien difusi). Proses difusi akan lebih cepat bergantung pada koefisien difusi, semakin besar koefisien difusi maka semakin cepat proses difusi. Persebaran polutan berganting pada nilai theta atau arah gerak arus yang terdapat pada pemodelan tersebut. Menurut Hutomo et al. (2019), makin bertambahnya waktu, polutan akan bergerak mengikuti arus yang sekaligus berdifusi dan mengalami pengurangan nilai konsentrasi.
 # MODUL 3 HIDRODINAMIKA 1D
 # 3.1 TEORI DASAR
 # 3.2 METODE
