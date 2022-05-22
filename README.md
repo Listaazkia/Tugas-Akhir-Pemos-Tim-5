@@ -11,14 +11,22 @@
 
 # INSTALASI MINICONDA DAN LIBRARY 
 1. Unduh Software pada link  [MINICONDA SOFTWARE](https://docs.conda.io/en/latest/miniconda.html#) dan pilih versi Windows dan Versi Python yang sesuaikan dengan jenis sistem operasi Windows yang digunakan.
-2. File instalasi Miniconda dibuka dan pilih Run as administrator ![image](https://user-images.githubusercontent.com/105970624/169655345-fdf61fa1-d32a-4ee1-b136-723fbf1b2613.png)
-3. diklik "Next" pada Dialog Instalasi Minicond ![image](https://user-images.githubusercontent.com/105970624/169655371-0bf27769-97e0-4c54-a9df-93e2ef0da71b.png)
-4. diklik "I Agree" untuk Menyetujui Perjanjian Lisensi Software Miniconda ![image](https://user-images.githubusercontent.com/105970624/169655415-fe953630-b98b-476a-a4a7-89ada23757eb.png)
-5. dilakukan konfigurasi Instalasi Miniconda dan pilih "allUsers" ![image](https://user-images.githubusercontent.com/105970624/169655444-83bf99bd-bb70-4d3f-8d5c-3fc06b641289.png)
-6. Directory Penyimpanan Minicond dipilih ![image](https://user-images.githubusercontent.com/105970624/169655480-7a93621e-e43d-4588-a05b-f8b9c60e0071.png)
-7. Opsi Tingkat Lanjut Instalasi Miniconda "Register Miniconda as the system Python 3.9" untuk memperbolehkan IDE mengakses Python Environment Miniconda. lalu diklik install ![image](https://user-images.githubusercontent.com/105970624/169655558-22471033-6e45-4e75-8f50-26ae46c874e1.png)
-8. Tunggu Proses Instalasi ![image](https://user-images.githubusercontent.com/105970624/169655567-c886d0bb-aa0b-4112-8601-0d82076cf6c6.png)
-9. Klik "Finish" Dialog Instalasi Miniconda ![image](https://user-images.githubusercontent.com/105970624/169655578-6e19407c-022a-4ca9-aa68-bfe7338dbd56.png)
+2. File instalasi Miniconda dibuka dan pilih Run as administrator 
+![image](https://user-images.githubusercontent.com/105970624/169655345-fdf61fa1-d32a-4ee1-b136-723fbf1b2613.png)
+4. diklik "Next" pada Dialog Instalasi Minicond 
+![image](https://user-images.githubusercontent.com/105970624/169655371-0bf27769-97e0-4c54-a9df-93e2ef0da71b.png)
+6. diklik "I Agree" untuk Menyetujui Perjanjian Lisensi Software Miniconda 
+![image](https://user-images.githubusercontent.com/105970624/169655415-fe953630-b98b-476a-a4a7-89ada23757eb.png)
+8. dilakukan konfigurasi Instalasi Miniconda dan pilih "allUsers" 
+![image](https://user-images.githubusercontent.com/105970624/169655444-83bf99bd-bb70-4d3f-8d5c-3fc06b641289.png)
+10. Directory Penyimpanan Minicond dipilih 
+![image](https://user-images.githubusercontent.com/105970624/169655480-7a93621e-e43d-4588-a05b-f8b9c60e0071.png)
+12. Opsi Tingkat Lanjut Instalasi Miniconda "Register Miniconda as the system Python 3.9" untuk memperbolehkan IDE mengakses Python Environment Miniconda. lalu diklik install 
+![image](https://user-images.githubusercontent.com/105970624/169655558-22471033-6e45-4e75-8f50-26ae46c874e1.png)
+14. Tunggu Proses Instalasi 
+![image](https://user-images.githubusercontent.com/105970624/169655567-c886d0bb-aa0b-4112-8601-0d82076cf6c6.png)
+16. Klik "Finish" Dialog Instalasi Miniconda 
+![image](https://user-images.githubusercontent.com/105970624/169655578-6e19407c-022a-4ca9-aa68-bfe7338dbd56.png)
 
 
 # MODUL 1 ADVEKSI-DIFUSI 1D
@@ -99,35 +107,39 @@ Persamaan diskritisasi model 2D mendekati proses kejadian di alam. Untuk diskrit
 
 ## MODUL 4 HIDRODINAMIKA 2D
 ### 4.1 TEORI DASAR
+<p> Hidrodinamika adalah cabang dari mekanika fluida, khususnya zat cair incompressible yang di pengaruhi oleh gaya internal dan eksternal (Cahyana, 2011). Dalam hidrodinamika laut gaya-gaya yang terpenting adalah gaya gravitasi, gaya gesekan, dan gaya coriolis. Dalam oseanografi, mekanika fluida digunakan  berdasarkan mekanika Newton yang dimodifikasi dengan memperhitungkan turbelensi</p>
+
+- **Perbedaan Hidrodinamika 1D dan 2D**
+
 ### 4.2 METODE
 1. Buka miniconda lalu ketik jupyter notebook uuntuk membuka jupyter notebook sebagai text editor 
 ![image](https://user-images.githubusercontent.com/96079752/169678825-36135327-8ced-43e9-b90c-18a646e41135.png)
 
-*import matplotlib.pyplot as plt
-*from siphon.simplewebservice.ndbc import NDBC
+*import matplotlib.pyplot as plt*
+*from siphon.simplewebservice.ndbc import NDBC*
 
-*df = NDBC.realtime_observations('51101') df.head()
+*df = NDBC.realtime_observations('51101') df.head()*
 
-*fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(12, 10)) ax2b = ax2.twinx()
+*fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(12, 10)) ax2b = ax2.twinx()*
 
-*ax1.plot(df['time'], df['pressure'], color='darkorange') ax1.set_ylabel('Pressure [hPa]') fig.suptitle('Pemodelan Hidrodinamika 2D_TIM 5', fontsize=18)
+*ax1.plot(df['time'], df['pressure'], color='darkorange') ax1.set_ylabel('Pressure [hPa]') fig.suptitle('Pemodelan Hidrodinamika 2D_TIM 5', fontsize=18)*
 
-*ax2.plot(df['time'], df['wind_speed'], color='red') ax2.plot(df['time'], df['wind_gust'], color='olive', linestyle='--') ax2b.plot(df['time'], df['wind_direction'], color='mediumblue', linestyle='-') ax2.set_ylabel('Wind Speed [m/s]') ax2b.set_ylabel('Wind Direction')
+*ax2.plot(df['time'], df['wind_speed'], color='red') ax2.plot(df['time'], df['wind_gust'], color='olive', linestyle='--') ax2b.plot(df['time'], df['wind_direction'], color='mediumblue', linestyle='-') ax2.set_ylabel('Wind Speed [m/s]') ax2b.set_ylabel('Wind Direction')*
 
 *ax3.plot(df['time'],df['water_temperature'], color='deepskyblue') ax3.set_ylabel('Water Temperature [degC]')*
 
-*plt.show() 
+*plt.show()*
 
 2. Tuliskan script diatas
-![image](https://user-images.githubusercontent.com/96079752/169678759-9de80ba7-fb2b-421f-ba52-749a46d7ca59.png)
+![image](https://user-images.githubusercontent.com/96079752/169679102-7c744be3-1ab0-4a86-b54d-3b43e74f2b75.png)
 
-3. Klik run untuk menjalankan script
+3. Klik *run* untuk menjalankan script
 ![image](https://user-images.githubusercontent.com/96079752/169678800-38faec5f-e4d8-4f21-9d59-63566a4c9e63.png)
 
 4. Setelah menunggu beberapa saat akan muncul hasil seperti berikut 
 ![image](https://user-images.githubusercontent.com/96079752/169678707-005fc3ab-874f-42a7-ac0b-e71022d8fff6.png)
 
-5. Buka lama NDBC_NOAA untuk melihat lokasi station yang diperoleh sesuai NIM dan pada kolom Station ID Search ditulis ID lalu diklik Go
+5. Buka laman NDBC_NOAA untuk melihat lokasi station yang diperoleh sesuai NIM dan pada kolom Station ID Search ditulis ID lalu diklik Go
 ![image](https://user-images.githubusercontent.com/96079752/169678874-ae39ad63-8b14-43b0-9a9f-087b2a368a6c.png)
 
 6. Maka akan muncul informasi mengenai lokasi stasiun sesuai ID yang dimasukkan seperti dibawah ini
@@ -137,9 +149,10 @@ Persamaan diskritisasi model 2D mendekati proses kejadian di alam. Untuk diskrit
 ### 4.3 SCRIPT DAN HASIL
 
 - Script
+
 ![image](https://user-images.githubusercontent.com/96079752/169678930-1eaf03a8-27ec-40a7-80ee-5b2634f66112.png)
 
-- Hasil 
+- Hasil
 ![image](https://user-images.githubusercontent.com/96079752/169678736-8e3cf07b-f508-48a5-b156-297fd3ba37ab.png)
 
 ### 4.4 ANALISIS
