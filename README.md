@@ -32,7 +32,7 @@
 # MODUL 1 ADVEKSI-DIFUSI 1D
 # 1.1 TEORI DASAR
 # 1.1.1 Adveksi 1D
-*Persamaan Adveksi 
+
 Persamaan Adveksi merupakan salah satu persamaan diferensial parsial yang memodelkan pergerakan suatu konsentrat dalam cairan yang mengalir, dengan asumsi konsentrat tersebut tidak mengalami proses difusi di dalam cairan. adveksi berkaitan erat dengan aktivitas atau pergerakan suatu benda dari suatu tempat ke tempat lainnya untuk waktu tertentu. persamaan adveksi merupakan bentuk khusus dari persamaan diferensial untuk hukum kekekalan.
   - Persamaan umum Adveksi 1D:
   
@@ -58,7 +58,6 @@ Persamaan Adveksi merupakan salah satu persamaan diferensial parsial yang memode
   
   ![Screenshot (563)](https://user-images.githubusercontent.com/105967489/169684127-ceddb480-0f86-4233-bfeb-104158e91246.png)
 
-  
 
 - Leapfrog (CTCS)
 
@@ -76,6 +75,14 @@ Persamaan Adveksi merupakan salah satu persamaan diferensial parsial yang memode
   - Jika u < 0, turunan terhadap ruang menggunakan pendekatan beda maju.
    ![image](https://user-images.githubusercontent.com/105967489/169652271-5894b538-197d-4d27-9498-ee546a24e993.png)
 
+# 1.1.2 Difusi 1D
+Persamaan difusi adalah persamaan diferensial parsial linier yang merupakan representasi berpindahnya suatu zat dalam pelarut dari bagian berkonsentrasi tinggi ke bagian yang berkonsentrasi rendah. Zat meyebar karena adanya gradien konsentrasi. Proses ini akan terjadi sampai seluruh partikel tersebar luas secara merata atau mencapai keadaan setimbang yaitu dimana perpindahan molekul tetap terjadi namun tidak ada perubahan konsentrasi. Faktor-faktor yang mempengaruhi kecepatan difusi, yaitu ukuran partikel, ketebalan membran, luas area, jarak dan suhu. Contoh aplikasi di oseanografi: Oil spill.
+- Diskritisasi dilakukan secara eksplisit (FTCS):
+  
+  Eksplisit continue maupun discontinue.
+- Syarat Batas terpenuhi= overflow.
+
+  ![Screenshot (564)](https://user-images.githubusercontent.com/105967489/169684966-612ccd23-b27e-4cd1-b081-34a823a0196a.png)
 
 
 # MODUL 2 ADVEKSI-DIFUSI 2D
@@ -83,12 +90,12 @@ Persamaan Adveksi merupakan salah satu persamaan diferensial parsial yang memode
 - Adveksi merupakan mekanisme perpindahan massa suatu materi dari suatu titik ke titik lainya. Contoh adveksi adalah pengangkutan polutan atau endapan di sungai oleh aliran air curah ke hilir.
 - Persamaan Adveksi 2D
 
-![gambar](https://user-images.githubusercontent.com/105971274/169653219-816099ca-3c0a-4132-8c88-455223b7413b.png)
+  ![gambar](https://user-images.githubusercontent.com/105971274/169653219-816099ca-3c0a-4132-8c88-455223b7413b.png)
 
 - Difusi adalah sebuah proses dimana suatu zat bergerak dari konsentrasi tinggi ke rendah, sehingga akan menghasilkan konsentrasi yang sama didalam zat tersebut.
 - Persamaan Difusi 2D
 
-![gambar](https://user-images.githubusercontent.com/105971274/169666820-cc368012-44c2-4028-be8d-b4c89a71c9e7.png)
+  ![gambar](https://user-images.githubusercontent.com/105971274/169666820-cc368012-44c2-4028-be8d-b4c89a71c9e7.png)
 
 - Pengaplikasian persamaan adveksi-difusi 2 dimensi digunakan sebagai pemodelan persebaran polutan. Persamaan adveksi-difusi 2D dapat digunakan juga dalam simulasi pergerakan atau persebaran tumpahan minyak (oil spill). Pengaplikasian persamaan adveksi difusi 2 dimensi digunakan untuk mengetahui distribusi partikel sedimen
 
@@ -98,17 +105,17 @@ Metode deksritisasi model 2D pada bagian atau suku adveksi dan difusi umumnya me
 - Adveksi 2D
 - Pada model adveksi 2D metode eksplisit upstream untuk Pada metode ini persamaan beda hingga menggunakan pendekatan beda maju untuk turunan waktu, dan untuk turunan terhadap ruang dengan melihat arah kecepatan u. Jika u>0 maka turunan terhadap ruang menggunankan pendekatan beda mundur. Jika u<0 digunakan pendekatan beda maju
 - Persamaan dari metode diskritisasi untuk suku adveksi 2D
-![gambar](https://user-images.githubusercontent.com/105971274/169654069-3e1a6646-352d-4755-acd3-8bcbafef31e0.png)
+  ![gambar](https://user-images.githubusercontent.com/105971274/169654069-3e1a6646-352d-4755-acd3-8bcbafef31e0.png)
 
 - Difusi 2D
 - Model 2D untuk mekanisme transpor difusi dapat menggunakan pendekatan beda maju untuk turunan waktu dan beda pusat untuk turunan ruang. Indeks n untuk waktu, indeks i untuk ruang, dan koefisiesn difusi AD dianggap konstan terhadap ruang dan waktu
 - Persamaan diskritisasi untuk model 2D difusi adalah sebagai berikut
-![gambar](https://user-images.githubusercontent.com/105971274/169654200-af9bf5b9-bc10-49fd-9af0-22a69f2f5447.png)
+  ![gambar](https://user-images.githubusercontent.com/105971274/169654200-af9bf5b9-bc10-49fd-9af0-22a69f2f5447.png)
 
 - Adveksi-Difusi 2D
 Persamaan diskritisasi model 2D mendekati proses kejadian di alam. Untuk diskritisasi model 2D proses adveksi-difusi didapat dari menggabungkan deskritisasi dua suku yakni suku adveksi dan suku difusi. untuk model adveksi difusi 2D adalah sebagai berikut
 
-![gambar](https://user-images.githubusercontent.com/105971274/169654760-cc46104a-fbbd-4ee2-9303-0139f48f283a.png)
+  ![gambar](https://user-images.githubusercontent.com/105971274/169654760-cc46104a-fbbd-4ee2-9303-0139f48f283a.png)
 
 # 2.3 SCRIPT DAN HASIL
 - Script
