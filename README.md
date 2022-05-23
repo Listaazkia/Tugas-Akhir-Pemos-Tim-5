@@ -329,8 +329,246 @@ for n in range (0, Nt):
 Berdasarkan 4 situasi yang telah dimodelkan, dapat diketahui bahwa persebaran polutan pada perairan berganting pada nilai C (kecepatan aliran) dan ad (koefisien difusi). Proses difusi akan lebih cepat bergantung pada koefisien difusi, semakin besar koefisien difusi maka semakin cepat proses difusi. Persebaran polutan berganting pada nilai theta atau arah gerak arus yang terdapat pada pemodelan tersebut. Menurut Hutomo et al. (2019), makin bertambahnya waktu, polutan akan bergerak mengikuti arus yang sekaligus berdifusi dan mengalami pengurangan nilai konsentrasi.
 # MODUL 3 HIDRODINAMIKA 1D
 # 3.1 TEORI DASAR
+# 3.1.1 PENGERTIAN HIDRODINAMIKA 1D
+Hidrodinamika adalah cabang dari mekanika fluida, khususnya zat cair incompressible yang di pengaruhi oleh gaya internal dan eksternal. Dalam hidrodinamika laut gaya-gaya yang terpenting adalah gaya gravitasi, gaya gesekan, dan gaya coriolis . Dalam oseanografi, mekanika fluida digunakan berdasarkan mekanika Newton yang dimodifikasi dengan memperhitungkan turbelensi. Tujuan dari pembuatan model hidrodinamika dan variasi topografi satu dimensi adalah untuk menerapkan metode pemecahan numerik untuk menyelesaikan persamaan difusi satu dimensi dengan menggunakan metode eksplisit. Selain itu juga pembuatan model hidrodinamika dan variasi topografi satu dimensi adalah untuk memahami penerapan parameter model dalam kaitannya dengan stabilitas numerik.
+
+# 3.1.2 PERSAMAAN-PERSAMAAN MODEL HIDRODINAMIKA 1 DIMENSI
+Hidrodinamika 1 dimensi memiliki 2 persamaan utama, yaitu:
+- Persamaan Kontinuitas 
+
+![Screenshot (145)](https://user-images.githubusercontent.com/105975430/169915477-fb5c35f7-e112-4df2-929b-340883079fc1.png)
+
+- Persamaan Momentum
+
+![Screenshot (146)](https://user-images.githubusercontent.com/105975430/169915647-83b64cc6-71e7-48c2-8aeb-ebb3b25fb5f6.png)
+
+# 3.1.3 METODE DISKRITASI
+iskritisasi persamaan model hidrodinamika 1 dimensi dapat dilakukan menggunakan metode eksplisit.
+
+![Screenshot (144)](https://user-images.githubusercontent.com/105975430/169916202-623885e8-7c5c-4137-84f8-395b21a294e1.png)
+
+Diskretisasi numerik persamaan hidrodinamika 1 dimensi secara eksplisit harus mempunyai kriteria stabilitas Courant-Freiderichs-Lewy (CFL) sebagai berikut:
+
+![Screenshot (147)](https://user-images.githubusercontent.com/105975430/169916337-9cadff1f-afc9-4d4e-8700-4ad9db4932a6.png)
+
 # 3.2 METODE
+1. Buka jupyterlab notebook, lalu script baru dibuat
+
+![Screenshot (148)](https://user-images.githubusercontent.com/105975430/169917283-af7415ad-fe34-4b98-ab2d-f97739a0821e.png)
+
+2. Selanjutnya, melakukan import library python matplotlib untuk memberikan efek visual berupa grafik dan numpy untuk perhitungan numerik
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+3. Kemudian, memasukkan parameter perhitungan yang akan digunakan.
+
+    p = 5000 #Panjang Grid
+    T = 1200 #Waktu Simulasi
+    A = 0.5 #Amplitudo
+    D = 15 #Depth/Kedalaman
+    dt = 2 
+    dx = 100
+    To = 300 #Periode
+
+    g = 9.8
+    pi = np.pi
+    C = np.sqrt(g*D) #Kecepatan Arus
+    s = 2*pi/To #Kecepatan Sudut Gelombang
+    L = C*To #Panjang Gelombang
+    k = 2*pi/L #Koefisien Panjang Gelombang
+    Mmax = int(p//dx)
+    Nmax = int(T//dt)
+
+    zo = [None for _ in range(Mmax)]
+    uo = [None for _ in range(Mmax)]
+
+    hasilu = [None for _ in range(Nmax)]
+    hasilz = [None for _ in range(Nmax)]
+    
+4. Setelah itu, script perhitungan dibuat
+
+for i in range(1, Mmax+1):
+    zo[i-1] = A*np.cos(k*(i)*dx)
+    uo[i-1] = A*C*np.cos(k*((i)*dx+(0.5)*dx))/(D+zo[i-1])
+for i in range(1, Nmax+1):
+    zb = [None for _ in range (Mmax)]
+    ub = [None for _ in range (Mmax)]
+    zb[0] = A*np.cos(s*(i)*dt)
+    ub[-1] = A*C*np.cos(k*L-s*(i)*dt)/(D+zo[-1])
+    for j in range(1, Mmax):
+        ub[j-1] = uo[j-1]-g*(dt/dx)*(zo[j]-zo[j-1])
+    for k in range(2, Mmax+1):
+        zb[k-1] = zo[k-1]-(D+zo[k-1])*(dt/dx)*(ub[k-1]-ub[k-2])
+        hasilu[i-1] = ub
+        hasilz[i-1] = zb
+    for p in range(0, Mmax):
+        uo[p] = ub[p]
+        zo[p] = zb[p]
+        
+5. Lalu, script grafik dibuat
+
+def rand_col_hex_string():
+    return f'#{format(np.random.randint(0,16777215), "#08x")[2:]}'
+
+hasilu_np = np.array(hasilu)
+hasilz_np = np.array(hasilz)
+
+fig0, ax0 = plt.subplots(figsize=(12,8))
+for i in range(1, 16):
+    col0 = rand_col_hex_string()
+    line, = ax0.plot(hasilu_np[:,i-1], c=col0, label=f'n={i}')
+    ax0.legend()
+    
+    ax0.set(xlabel='Waktu', ylabel='Kecepatan Arus',
+           title='''Nama_NIM
+           Perubahan Kecepatan Arus dalam Grid Tertentu di Sepanjang Waktu''')
+    ax0.grid()
+    
+fig1, ax1 = plt.subplots(figsize=(12,8))
+for i in range(1, 16):
+    col1 = rand_col_hex_string()
+    line, = ax1.plot(hasilz_np[:,i-1], c=col1, label=f'n={i}')
+    ax1.legend()
+    
+    ax1.set(xlabel='Waktu', ylabel='Elevasi Muka Air',
+           title='''Nama_NIM
+           Perubahan Elevasi Permukaan Air dalam Grid Tertentu di Sepanjang Waktu''')
+    ax1.grid()
+    
+fig2, ax2 = plt.subplots(figsize=(12,8))
+for i in range(1, 16):
+    col2 = rand_col_hex_string()
+    line, = ax2.plot(hasilu_np[i-1], c=col2, label=f't={i}')
+    ax2.legend()
+    
+    ax2.set(xlabel='Grid', ylabel='Kecepatan Arus',
+           title='''Nama_NIM
+           Perubahan Kecepatan Arus dalam Waktu Tertentu di Sepanjang Grid''')
+    ax2.grid()
+
+fig3, ax3 = plt.subplots(figsize=(12,8))
+for i in range(1, 16):
+    col3 = rand_col_hex_string()
+    line, = ax3.plot(hasilz_np[i-1], c=col3, label=f't={i}')
+    ax3.legend()
+    
+    ax3.set(xlabel='Grid', ylabel='Elevasi Muka Air',
+           title='''Nama_NIM
+           Perubahan Elevasi Permukaan Air dalam Waktu Tertentu di Sepanjang Grid''')
+    ax3.grid()
+    
+plt.show()
+
 # 3.3 SCRIPT DAN HASIL
+- Script
+import matplotlib.pyplot as plt
+import numpy as np
+
+p = 5000 #Panjang Grid
+T = 1200 #Waktu Simulasi
+A = 0.5  #Amplitudo
+D = 15   #Depth/Kedalaman
+dt = 2   
+dx = 100
+To = 300 #Periode
+
+g = 9.8
+pi = np.pi
+C = np.sqrt(g*D) #Kecepatan Arus
+s = 2*pi/To      #Kecepatan Sudut Gelombang
+L = C*To         #Panjang Gelombang
+k = 2*pi/L       #Koefisien Panjang Gelombang
+Mmax = int(p//dx)
+Nmax = int(T//dt)
+
+zo = [None for _ in range(Mmax)]
+uo = [None for _ in range (Mmax)]
+
+hasilu = [None for _ in range (Nmax)]
+hasilz = [None for _ in range (Nmax)]
+
+for i in range(1, Mmax+1):
+    zo[i-1] = A*np.cos(k*(i)*dx)
+    uo[i-1] = A*C*np.cos(k*((i)*dx+(0.5)*dx))/(D+zo[i-1])
+for i in range(1, Nmax+1):
+    zb = [None for _ in range (Mmax)]
+    ub = [None for _ in range (Mmax)]
+    zb[0] = A*np.cos(s*(i)*dt)
+    ub[-1] = A*C*np.cos(k*L-s*(i)*dt)/(D+zo[-1])
+    for j in range(1, Mmax):
+        ub[j-1] = uo[j-1]-g*(dt/dx)*(zo[j]-zo[j-1])
+    for k in range(2, Mmax+1):
+        zb[k-1] = zo[k-1]-(D+zo[k-1])*(dt/dx)*(ub[k-1]-ub[k-2])
+        hasilu[i-1] = ub
+        hasilz[i-1] = zb
+    for p in range(0, Mmax):
+        uo[p] = ub[p]
+        zo[p] = zb[p]
+        
+def rand_col_hex_string():
+    return f'#{format(np.random.randint(0,16777215), "#08x")[2:]}'
+
+hasilu_np = np.array(hasilu)
+hasilz_np = np.array(hasilz)
+
+fig0, ax0 = plt.subplots(figsize=(12,8))
+for i in range(1, 16):
+    col0 = rand_col_hex_string()
+    line, = ax0.plot(hasilu_np[:,i-1], c=col0, label=f'n={i}')
+    ax0.legend()
+    
+    ax0.set(xlabel='Waktu', ylabel='Kecepatan Arus',
+           title='''Nama_NIM
+           Perubahan Kecepatan Arus dalam Grid Tertentu di Sepanjang Waktu''')
+    ax0.grid()
+    
+fig1, ax1 = plt.subplots(figsize=(12,8))
+for i in range(1, 16):
+    col1 = rand_col_hex_string()
+    line, = ax1.plot(hasilz_np[:,i-1], c=col1, label=f'n={i}')
+    ax1.legend()
+    
+    ax1.set(xlabel='Waktu', ylabel='Elevasi Muka Air',
+           title='''Nama_NIM
+           Perubahan Elevasi Permukaan Air dalam Grid Tertentu di Sepanjang Waktu''')
+    ax1.grid()
+    
+fig2, ax2 = plt.subplots(figsize=(12,8))
+for i in range(1, 16):
+    col2 = rand_col_hex_string()
+    line, = ax2.plot(hasilu_np[i-1], c=col2, label=f't={i}')
+    ax2.legend()
+    
+    ax2.set(xlabel='Grid', ylabel='Kecepatan Arus',
+           title='''Nama_NIM
+           Perubahan Kecepatan Arus dalam Waktu Tertentu di Sepanjang Grid''')
+    ax2.grid()
+
+fig3, ax3 = plt.subplots(figsize=(12,8))
+for i in range(1, 16):
+    col3 = rand_col_hex_string()
+    line, = ax3.plot(hasilz_np[i-1], c=col3, label=f't={i}')
+    ax3.legend()
+    
+    ax3.set(xlabel='Grid', ylabel='Elevasi Muka Air',
+           title='''Nama_NIM
+           Perubahan Elevasi Permukaan Air dalam Waktu Tertentu di Sepanjang Grid''')
+    ax3.grid()
+    
+plt.show()
+
+- Hasil
+
+![download](https://user-images.githubusercontent.com/105975430/169919876-5b784062-1e0a-4ffd-9030-17d3df9f7fb3.png)
+
+![download (1)](https://user-images.githubusercontent.com/105975430/169919888-6ee57417-95b2-4c8e-ad0e-66a9082cbe7a.png)
+
+![download (2)](https://user-images.githubusercontent.com/105975430/169919907-adf154a3-dc6f-44fb-979a-6075d821da7f.png)
+
+![download (3)](https://user-images.githubusercontent.com/105975430/169919922-6c9a7167-87d0-4686-a776-d4e1ba1737bd.png)
+
+
 # 3.4 ANALISIS
 
 ## MODUL 4 HIDRODINAMIKA 2D
