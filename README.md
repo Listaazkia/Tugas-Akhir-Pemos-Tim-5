@@ -497,57 +497,57 @@ Diskretisasi numerik persamaan hidrodinamika 1 dimensi secara eksplisit harus me
           for p in range(0, Mmax):
               uo[p] = ub[p]
               zo[p] = zb[p]
-      def rand_col_hex_string():
-          return f'#{format(np.random.randint(0,16777215), "#08x")[2:]}'
+       def rand_col_hex_string():
+      return f'#{format(np.random.randint(0,16777215), "#08x")[2:]}'
 
-      hasilu_np = np.array(hasilu)
-      hasilz_np = np.array(hasilz)
+       hasilu_np = np.array(hasilu)
+       hasilz_np = np.array(hasilz)
 
-      fig0, ax0 = plt.subplots(figsize=(12,8))
-      for i in range(1, 16):
-          col0 = rand_col_hex_string()
-          line, = ax0.plot(hasilu_np[:,i-1], c=col0, label=f'n={i}')
-          ax0.legend()
+       fig0, ax0 = plt.subplots(figsize=(12,8))
+       for i in range(1, 16):
+           col0 = rand_col_hex_string()
+           line, = ax0.plot(hasilu_np[:,i-1], c=col0, label=f'n={i}')
+           ax0.legend()
 
-          ax0.set(xlabel='Waktu', ylabel='Kecepatan Arus',
-                 title='''KELOMPOK 2_OSEANOGRAFI 2020_PRAKTIKUM PEMODELAN OSEANOGRAFI 2022
-                 Perubahan Kecepatan Arus Dalam Grid Tertentu di Sepanjang Waktu''')
-          ax0.grid()
+           ax0.set(xlabel='Waktu', ylabel='Kecepatan Arus',
+                  title='''Nama_NIM
+                  Perubahan Kecepatan Arus dalam Grid Tertentu di Sepanjang Waktu''')
+           ax0.grid()
 
-      fig1, ax1 = plt.subplots(figsize=(12,8))
-      for i in range(1, 16):
-          col1 = rand_col_hex_string()
-          line, = ax1.plot(hasilz_np[:,i-1], c=col1, label=f'n={i}')
-          ax1.legend()
+       fig1, ax1 = plt.subplots(figsize=(12,8))
+       for i in range(1, 16):
+           col1 = rand_col_hex_string()
+           line, = ax1.plot(hasilz_np[:,i-1], c=col1, label=f'n={i}')
+           ax1.legend()
 
-          ax1.set(xlabel='Waktu', ylabel='Elevasi Muka Air',
-                 title='''KELOMPOK 2_OSEANOGRAFI 2020_PRAKTIKUM PEMODELAN OSEANOGRAFI 2022
-                 Perubahan Elevasi Permukaan Air Dalam Grid Tertentu di Sepanjang Waktu''')
-          ax1.grid()
+           ax1.set(xlabel='Waktu', ylabel='Elevasi Muka Air',
+                  title='''Nama_NIM
+                  Perubahan Elevasi Permukaan Air dalam Grid Tertentu di Sepanjang Waktu''')
+           ax1.grid()
 
-      fig2, ax2 = plt.subplots(figsize=(12,8))
-      for i in range(1, 16):
-          col2 = rand_col_hex_string()
-          line, = ax2.plot(hasilu_np[i-1], c=col2, label=f't={i}')
-          ax2.legend()
+       fig2, ax2 = plt.subplots(figsize=(12,8))
+       for i in range(1, 16):
+           col2 = rand_col_hex_string()
+           line, = ax2.plot(hasilu_np[i-1], c=col2, label=f't={i}')
+           ax2.legend()
 
-          ax2.set(xlabel='Grid', ylabel='Kecepatan Arus',
-                 title='''KELOMPOK 2_OSEANOGRAFI 2020_PRAKTIKUM PEMODELAN OSEANOGRAFI 2022
-                 Perubahan Kecepatan Arus Dalam Waktu Tertentu di Sepanjang Grid''')
-          ax2.grid()
+           ax2.set(xlabel='Grid', ylabel='Kecepatan Arus',
+                  title='''Nama_NIM
+                  Perubahan Kecepatan Arus dalam Waktu Tertentu di Sepanjang Grid''')
+           ax2.grid()
 
-      fig3, ax3 = plt.subplots(figsize=(12,8))
-      for i in range(1, 16):
-          col3 = rand_col_hex_string()
-          line, = ax3.plot(hasilz_np[i-1], c=col3, label=f't={i}')
-          ax3.legend()
+       fig3, ax3 = plt.subplots(figsize=(12,8))
+       for i in range(1, 16):
+           col3 = rand_col_hex_string()
+           line, = ax3.plot(hasilz_np[i-1], c=col3, label=f't={i}')
+           ax3.legend()
 
-          ax3.set(xlabel='Grid', ylabel='Elevasi Muka Air',
-                 title='''KELOMPOK 2_OSEANOGRAFI 2020_PRAKTIKUM PEMODELAN OSEANOGRAFI 2022
-                 Perubahan Elevasi Permukaan Air Dalam Waktu Tertentu di Sepanjang Grid''')
-          ax3.grid()
+           ax3.set(xlabel='Grid', ylabel='Elevasi Muka Air',
+                  title='''Nama_NIM
+                  Perubahan Elevasi Permukaan Air dalam Waktu Tertentu di Sepanjang Grid''')
+           ax3.grid()
 
-      plt.show()
+       plt.show()
 
 - Hasil
 
