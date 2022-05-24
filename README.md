@@ -119,7 +119,8 @@ Persamaan diskritisasi model 2D mendekati proses kejadian di alam. Untuk diskrit
 
 # 2.3 SCRIPT DAN HASIL
 - Script
-
+**Import Modul**
+```
 import matplotlib.pyplot as plt
 
 import numpy as np
@@ -133,22 +134,19 @@ def percentage(part, whole):
     
     return str(round(percentage,2)) + "x"
     
-
-#Masukan Parameter Awal
-
+```
+**Masukkanan Parameter Awal**
+```
 C = 0.xx(2 Nim terakhir dibalik)(genap), 1.xx(2 Nim terakhir dibalik)(ganjil)
 
 ad = 1.xx(2 Nim terakhir dibalik) 
 
-
-#Arah Arus
-
 theta =  (I, II, III,IV skenario) + xx(2 Nim terakhir dibalik)
 
+```
 
-
-#Parameter Lanjutan
-
+**Masukkan Parameter Lanjutan**
+```
 q = 0.95 
 
 x = 300(NIM genap), 500(NIM ganjil)
@@ -161,50 +159,46 @@ dx = 3(NIM genap), 5(NIM ganjil)
 
 dy = 3(NIM genap), 5(NIM ganjil)
 
-
-#Lama Simulasi
-
 Tend = 2
 
 #Tend = 0,5
 
 dt = 0.5
 
-
-#Polutan
-
 px = 150(NIM genap), 250(NIM ganjil)
 
 py = 130 + x(1 Nim terakhir)(NIM genap), 230 + x (1 Nim terakhir)(NIM ganjil)
 
 Ic = 500 + xx(2 Nim terakhir)(NIM genap), 1000 + xx(2 Nim terakhir dibalik)(NIM ganjil)
+```
 
-
-#Perhitungan U dan V
-
+**Perhitungan U dan V**
+```
 u = C * np.sin(theta*np.pi/180)
 
 v = C * np.cos(theta*np.pi/180)
 
 dt_count = 1/((abs(u)/(q*dx))+(abs(v)/(q*dy))+(2*ad/(q*dx**2))+(2*ad/(q*dy*2)))
+```
 
-
+**Perhitungan Jumlah *Mesh* dan *Timestep***
+```
 Nx = int(x/dx)  #number of mesh in x direction
 
 Ny = int(y/dy)  #number of mesh in y direction
 
 Nt = int(Tend/dt)
+```
 
-
-#perhitungan titik polutan di buang
-
+**Perhitungan Titik Lepas Polutan**
+```
 px1 = int(px/dx)
 
 py1 = int(py/dy)
+```
 
-
-#fungsi disederhanakan
-
+**Fungsi Disederhanakan**
+```
 lx = u*dt/dx
 
 ly = v*dt/dy
@@ -214,10 +208,10 @@ ax = ad*dt/dx**2
 ay = ad*dt/dy**2
 
 cfl = (2*ax + 2*ay + abs(lx) + abs(ly))  #syarat kestabilan CFL
+```
 
-
-#perhitungan cfl
-
+**Perhitungan CFL**
+```
 if cfl >= q:
 
     print('CFL Violated, please use dt :'+str(round(dt_count,4)))
@@ -225,10 +219,10 @@ if cfl >= q:
     sys.exit ()
     
 #%%
+```
 
-
-#pembuatan grid 
-
+**Pembuatan Grid** 
+```
 x_grid = np.linspace(0-dx, x+dx, Nx+2) #ghostnode boundary
 
 y_grid = np.linspace(0-dx, y+dy, Ny+2) #ghostnode boundary
@@ -239,16 +233,13 @@ x_mesh, y_mesh = np.meshgrid(x_grid,y_grid)
 
 F = np.zeros((Nt+1, Ny+2, Nx+2))
 
-
-#kondisi awal
-
 F[0,py1,px1]=Ic
 
 #%%
+```
 
-
-#Iterasi
-
+**Iterasi**
+```
 for n in range (0, Nt):
 
     for i in range (1,Ny+1):
@@ -280,10 +271,10 @@ for n in range (0, Nt):
     F[n+1,:,Nx+1] = 0 #bc kanan
     
 #%%
+```
 
-
-    #Output Gambar
-    
+**Output Gambar**
+```
     plt.clf()
     
     plt.pcolor(x_mesh, y_mesh, F[n+1, :, :], cmap = 'jet',shading='auto',edgecolor='k')
@@ -318,7 +309,8 @@ for n in range (0, Nt):
     print('running timestep ke:' +str(n+1) + ' dari:' +str(Nt) + '('+ percentage(n+1,Nt)+')')
     
     print('Nilai CFL:' +str(cfl) + 'dengan arah: ' +str(theta))
-    
+```
+
 - Hasil
 ![hasil 1](https://user-images.githubusercontent.com/105906363/169682468-a5fbadaf-ca90-4b11-ae0a-89b3c9981701.jpg)
 ![hasil 2](https://user-images.githubusercontent.com/105906363/169682470-ec09a6c2-9493-4b57-aaa7-dc3c48cef345.jpg)
