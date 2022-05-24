@@ -326,7 +326,7 @@ for n in range (0, Nt):
 ![hasil 4](https://user-images.githubusercontent.com/105906363/169682474-f65110ec-1c22-4fe3-8372-60e5a3aab0a6.jpg)
 
 # 2.4 ANALISIS
-Berdasarkan 4 situasi yang telah dimodelkan, dapat diketahui bahwa persebaran polutan pada perairan berganting pada nilai C (kecepatan aliran) dan ad (koefisien difusi). Proses difusi akan lebih cepat bergantung pada koefisien difusi, semakin besar koefisien difusi maka semakin cepat proses difusi. Persebaran polutan bergantung pada nilai theta atau arah gerak arus yang terdapat pada pemodelan tersebut. Menurut Hutomo et al. (2019), makin bertambahnya waktu, polutan akan bergerak mengikuti arus yang sekaligus berdifusi dan mengalami pengurangan nilai konsentrasi.
+Berdasarkan 4 situasi yang telah dimodelkan, dapat diketahui bahwa persebaran polutan pada perairan berganting pada nilai C (kecepatan aliran) dan ad (koefisien difusi). Proses difusi akan lebih cepat bergantung pada koefisien difusi, semakin besar koefisien difusi maka semakin cepat proses difusi. Persebaran polutan bergantung pada nilai dari arah gerak arus atau theta yang terdapat pada pemodelan tersebut. Menurut Hutomo et al. (2019), makin bertambahnya waktu, polutan akan bergerak mengikuti arus yang sekaligus berdifusi dan mengalami pengurangan nilai konsentrasi.
 # MODUL 3 HIDRODINAMIKA 1D
 # 3.1 TEORI DASAR
 # 3.1.1 PENGERTIAN HIDRODINAMIKA 1D
