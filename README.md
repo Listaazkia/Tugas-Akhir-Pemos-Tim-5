@@ -119,6 +119,7 @@ Persamaan diskritisasi model 2D mendekati proses kejadian di alam. Untuk diskrit
 
 # 2.3 SCRIPT DAN HASIL
 - Script
+
 **Import Modul**
 ```
 import matplotlib.pyplot as plt
