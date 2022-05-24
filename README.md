@@ -564,9 +564,22 @@ Diskretisasi numerik persamaan hidrodinamika 1 dimensi secara eksplisit harus me
 
 ## MODUL 4 HIDRODINAMIKA 2D
 ### 4.1 TEORI DASAR
-<p> Hidrodinamika adalah cabang dari mekanika fluida, khususnya zat cair incompressible yang di pengaruhi oleh gaya internal dan eksternal (Cahyana, 2011). Dalam hidrodinamika laut gaya-gaya yang terpenting adalah gaya gravitasi, gaya gesekan, dan gaya coriolis. Dalam oseanografi, mekanika fluida digunakan  berdasarkan mekanika Newton yang dimodifikasi dengan memperhitungkan turbelensi</p>
+<p> Hidrodinamika adalah cabang dari mekanika fluida, khususnya zat cair incompressible yang di pengaruhi oleh gaya internal dan eksternal (Cahyana, 2011). Dalam hidrodinamika laut gaya-gaya yang terpenting adalah gaya gravitasi, gaya gesekan, dan gaya coriolis. Dalam oseanografi, mekanika fluida digunakan  berdasarkan mekanika Newton yang dimodifikasi dengan memperhitungkan turbelensi.Secara keseluruhan pemodelan hidrodinamika 2D sama dengan pemodelan hidrodinamika 1D, perbedaannya dapat ditinjau dari parameter yang digunakan. Di mana Hidrodinamika mengguanakan variabel x dan juga y dalam memproses pemodelan yang di buat. Selain itu, persamaan dan dikritasi yang digunakan untuk hidrodinamika 2D sama juga dengan Hidrodinamika 1D.</p>
 
-- **Perbedaan Hidrodinamika 1D dan 2D**
+** Perbedaan Hidrodinamika 1D dan 2D **
+- 
+** Paramter **
+Parameter merupakan hal hal yang diukur atau ditinjau sebagai bahan yang dapat mendukung pembuatan model hidrodinamika 2D ini. Di mana parameter yang digunakan harus 2 tinjauan. Hal ini yang membuat pemodelan Hidrodinamika 2D lebih kompleks dibandingkan pemodelan Hidrodinamika 1D.
+
+Contohnya :
+- pemodelan pergerakan arus, pergerakan arus ini mempengaruhi sedimentasi yang ada di bawah laut/dasar laut dan kekuatannya semakin lemah seiring dengan bertambahnya kedalaman. berarti parameter yang digunakan adalah kedalaman dan pengaruh arus terhadap sedimen.
+- Pengaruh angin terhadap gelombang. parameter yang dapat digunakan adalah kecepatan angin dan juga arah angin ataupun pengaruh angin terhadap kedalaman air.
+
+** Anomali **
+Anomali merupakan suatu kejadian yang aneh atau menyimpang atau tidak sesuai dengan teori yang ada. Di mana hasilnya tidak sesuai 100% dengan yang seharusnya. hal ini disebabkan oleh adanya fenomena-fenomena tertentu yang terjadi. hasil model dengan adanya anomali dapat membantu dalam memperkuat analisis yang dilakukan.
+
+contoh :
+- kondisi angin yang bertiup berbeda-beda. hal tersebut dapat disebabkan oleh fenomena berupa badai atau siklon.
 
 ### 4.2 METODE
 1. Buka miniconda lalu ketik jupyter notebook uuntuk membuka jupyter notebook sebagai text editor 
