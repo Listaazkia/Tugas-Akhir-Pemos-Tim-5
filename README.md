@@ -576,8 +576,8 @@ Diskretisasi numerik persamaan hidrodinamika 1 dimensi secara eksplisit harus me
 - daerah atau medan yang dipresentasikan yaitu x dan y atau z (ada 2 medan)
 - pemodelan ini cocok digunakan pada kondisi kemiringan yang curam
 - kedalaman airnya tidak sama atau dapat dikatan ada perbedaan kedalaman 
--
-#### Paramter 
+
+#### Parameter 
 Parameter merupakan hal hal yang diukur atau ditinjau sebagai bahan yang dapat mendukung pembuatan model hidrodinamika 2D ini. Di mana parameter yang digunakan harus 2 tinjauan. Hal ini yang membuat pemodelan Hidrodinamika 2D lebih kompleks dibandingkan pemodelan Hidrodinamika 1D.
 
 Contohnya :
@@ -593,8 +593,8 @@ contoh :
 #### Penerapan Pemodelan Hidrodinamika 2D
 - Pemodelan Gelombang karena angin 
 - pemodelan sampah plastik di laut. di mana parameter yang digunakan berupa kekuatan arus dan arah arus.
-- pemodlan coastal dinamis dan sedimentasi pantai. 
--
+- pemodelan coastal dinamis dan sedimentasi pantai. 
+
 ### 4.2 METODE
 1. Buka miniconda lalu ketik jupyter notebook uuntuk membuka jupyter notebook sebagai text editor 
 ![image](https://user-images.githubusercontent.com/96079752/169678825-36135327-8ced-43e9-b90c-18a646e41135.png)
