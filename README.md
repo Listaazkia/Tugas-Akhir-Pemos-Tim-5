@@ -10,6 +10,7 @@
 6. Gifbran Riki Pratama_26050120140156
 
 # INSTALASI MINICONDA DAN LIBRARY 
+## INSTALASI MINICONDA 
 1. Unduh Software pada link  [MINICONDA SOFTWARE](https://docs.conda.io/en/latest/miniconda.html#) dan pilih versi Windows dan Versi Python yang sesuaikan dengan jenis sistem operasi Windows yang digunakan.
 2. File instalasi Miniconda dibuka dan pilih Run as administrator 
 ![image](https://user-images.githubusercontent.com/105970624/169655345-fdf61fa1-d32a-4ee1-b136-723fbf1b2613.png)
@@ -28,12 +29,18 @@
 16. Klik "Finish" Dialog Instalasi Miniconda 
 ![image](https://user-images.githubusercontent.com/105970624/169655578-6e19407c-022a-4ca9-aa68-bfe7338dbd56.png)
 
+## INSTALASI LIBRARY 
+untuk instalisasi library pada mkniconda pada dasarnya dilakukan berdasarkan kebutuhan dalam memproses data. setiap library memiliki fungsinya masing-masing. library ini digunakan agar data dapat dibaca sesuai dengan yang ingin ditampilkan. library juga diartikan sebagai bahasa pemograman. contohnya adalah instalisai library paandas. Pandasdigunakan untuk membuat tabel, mengubah dimensi data, mengecek data, dan lain sebagainya. cara installnya bisa langsung menuliskan perintah dengan mengetik "pip install pandas". Apabila berhasil, kita dapat menggunakannya untuk melakukan manipulasi data dengan cara import modul tersebut pada projek yang akan kita buat sebagai berikut :
+
+import pandas as pd
+
+import numpy as np
 
 # MODUL 1 ADVEKSI-DIFUSI 1D
 # 1.1 TEORI DASAR
 # 1.1.1 Adveksi 1D
 
-Persamaan Adveksi merupakan salah satu persamaan diferensial parsial yang memodelkan pergerakan suatu konsentrat dalam cairan yang mengalir, dengan asumsi konsentrat tersebut tidak mengalami proses difusi di dalam cairan. adveksi berkaitan erat dengan aktivitas atau pergerakan suatu benda dari suatu tempat ke tempat lainnya untuk waktu tertentu. persamaan adveksi merupakan bentuk khusus dari persamaan diferensial untuk hukum kekekalan.
+Persamaan Adveksi merupakan salah satu persamaan diferensial parsial yang memodelkan pergerakan suatu konsentrat dalam cairan yang mengalir, dengan asumsi konsentrat tersebut tidak mengalami proses difusi di dalam cairan. adveksi berkaitan erat dengan aktivitas atau pergerakan suatu benda dari suatu tempat ke tempat lainnya untuk waktu tertentu. persamaan adveksi merupakan bentuk khusus dari persamaan diferensial untuk hukum kekekalan. 
   - Persamaan umum Adveksi 1D:
   
     ![Screenshot (562)](https://user-images.githubusercontent.com/105967489/169684030-5fcd1468-0206-4343-aaa5-663ba6c1cfed.png)
